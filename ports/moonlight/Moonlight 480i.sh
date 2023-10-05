@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Define the new height and width values
+# Define the native height and width values, this value needs to match the timings resolution below
 new_height=480
 new_width=720
 
@@ -34,10 +34,10 @@ timings=(
 
 file="/opt/rgbpi/ui/data/timings.dat"
 
-# Remove everything except the first two lines from the file
-sed -i '3,$d' "$file"
+# Remove all data from the file
+> "$file"
 
-# Append the new data to the file
+# Add the new data to the file
 for line in "${timings[@]}"; do
     echo "$line" >> "$file"
 done
