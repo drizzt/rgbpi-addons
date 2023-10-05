@@ -25,7 +25,7 @@ fi
 
 echo "Configuration file updated successfully."
 
-# Timings to add
+# Timings to add,
 timings=(
     "320 1 20 32 45 240 1 2 3 16 0 0 0 60.000000 0 6514560 1"
     "720 1 29 69 117 480 1 3 6 34 0 0 0 30 1 14670150 1"
@@ -34,14 +34,14 @@ timings=(
 
 file="/opt/rgbpi/ui/data/timings.dat"
 
-# Remove everything except the first two lines from the file
-sed -i '3,$d' "$file"
+# Remove all data from the file
+> "$file"
 
-# Append the new data to the file
+# Add the new data to the file
 for line in "${timings[@]}"; do
     echo "$line" >> "$file"
 done
 
 # Execute moonlight
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-QT_SCALE_FACTOR=0.52 H264_DECODER_HINT=h264_v4l2m2m DRM_FORCE_DIRECT=1 PULSE_SERVER=none QT_QPA_EGLFS_HIDECURSOR=1 moonlight-qt
+QT_SCALE_FACTOR=0.52 H264_DECODER_HINT=h264_v4l2m2m DRM_FORCE_DIRECT=1 PULSE_SERVER=none QT_QPA_EGLFS_HIDECURSOR=1 QT_QPA_EGLFS_KMS_CONFIG="$SCRIPT_DIR"/moonlight240.json moonlight-qt
