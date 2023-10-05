@@ -1,31 +1,29 @@
 #!/bin/bash
 
-# Define the directory path and file name
-config_dir="/root/.config/Moonlight Game Streaming Project"
-config_file="$config_dir/Moonlight.conf"
+# Define the native height and width values, this value needs to match the timings resolution below
+new_height=240
+new_width=320
 
-# Check if the directory exists, and create it if not
-if [ ! -d "$config_dir" ]; then
-  mkdir -p "$config_dir"
+# Set the path to the Moonlight.conf file
+moonlight_conf="/root/.config/Moonlight Game Streaming Project/Moonlight.conf"
+
+# Check if the file exists or not
+if [ -f "$moonlight_conf" ]; then
+    # The Moonlight.conf file exists, so update the height and width values
+    sed -i "s/^height=.*/height=${new_height}/" "$moonlight_conf"
+    sed -i "s/^width=.*/width=${new_width}/" "$moonlight_conf"
+    
+    echo "Height and width values in Moonlight.conf have been updated."
+else
+    # The Moonlight.conf file does not exist, so create it with the specified values
+    echo "[General]" > "$moonlight_conf"
+    echo "height=${new_height}" >> "$moonlight_conf"
+    echo "width=${new_width}" >> "$moonlight_conf"
+    
+    echo "Moonlight.conf file created with height and width values."
 fi
-
-# Check if the file exists, and create it with default content if not
-if [ ! -e "$config_file" ]; then
-  echo "[General]" > "$config_file"
-  echo "height=240" >> "$config_file"
-  echo "width=320" >> "$config_file"
-fi
-
-# Define the new values
-new_height="height=240"
-new_width="width=320"
-
-# Use sed to replace the values in the file
-sed -i "s/height=480/$new_height/" "$config_file"
-sed -i "s/width=720/$new_width/" "$config_file"
 
 echo "Configuration file updated successfully."
-
 
 # Timings to add
 timings=(
