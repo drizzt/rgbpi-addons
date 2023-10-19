@@ -25,7 +25,6 @@ fi
 
 echo "Configuration file updated successfully."
 
-# Timings to add, the below 720x480 shifts the image slighly to the left.
 timings=(
     "320 1 20 32 45 240 1 2 3 16 0 0 0 60.000000 0 6514560 1"
     "720 1 46 69 100 480 1 3 6 34 0 0 0 30 1 14670150 1"
