@@ -19,10 +19,7 @@ Install Directions:
 -Pi Reboots itself
 -Run Moonlight
 	
-There is a second Moonlight launcher called Left Shift. This one shifts the image to the left a tiny bit. My CRT needed it so I included it. Try both and see which works best for you. You can delete the one that is not centered.
-
-
 Running directions:
 -Go into the moonlight settings (Y on my controller), scroll with right thumbstick or plugin a keyboard/mouse and use scroll wheel
-	- MUST DO - Change output resolution to Native (720x480). DO NOT USE 720p
+	- MUST DO - Change output resolution to Native (720x480). DO NOT USE 720p. The new script will auto swith from 240p to 480i, but you may still need to click on native one time.
 	-If latency is an issue change the codec to x264
