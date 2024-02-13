@@ -11,7 +11,7 @@ Pre reqs:
 
 
 Install Directions:
--Unzip and move all the files into your ports folder, they can go inside another folder if you would like
+-Unzip the files to your usb drive. you should now have roms/ports/moonlight
 -Scan for new games in rgbpi ui
 -Go to folder 
 -Run installmoonlight
